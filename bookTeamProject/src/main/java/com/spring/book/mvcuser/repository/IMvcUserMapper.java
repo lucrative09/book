@@ -7,17 +7,21 @@ import com.spring.book.mvcuser.domain.MvcUser;
 public interface IMvcUserMapper {
 	
 	//회원등록 기능
-		void Join(MvcUser user);
+	void Join(MvcUser user);
 		
 	//중복확인 체크(Email, nickname)
-		int isDuplicate(Map<String, Object> datas);
+	//이메일도 겹치면 안 되고 닉네임도 겹치면 안 됨. 사업자는 추가로 사업자 검증을 받을 뿐. common의 권한도 모두 가짐. 
+	int isDuplicate(Map<String, Object> datas);
 	
-	//최종로그인 시간 갱신
+	//단일 회원정보 조회기능 
+	//이메일로.
+	MvcUser getUserInfo(String email);
 	
-	//사업자정보 조회기능
-	
-
+	//자동로그인 쿠키값을 DB에 저장하는 기능
+	void keepLogin(Map<String, Object> datas);
 	
 	//쿠키값으로 회원정보 불러오기 기능
+	MvcUser getUserWithSessionId(String sessionId);
+
 
 }

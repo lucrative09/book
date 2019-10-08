@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.book.mvcuser.repository.IMvcUserMapper">
+
+
+<!-- 1. 회원 등록기능 -->
+<insert id="Join">
+	INSERT INTO user
+	 (email, password, nickname, phone_number, bank, bank_account, auth, business_num, business_address) 
+	VALUES (#{email}, #{password}, #{nickname}, #{phoneNumber}, #{bank}, #{bankAccount}, #{auth}, #{businessNum}, #{businessAddress}) 
+</insert>
+
+<!-- 1-1. 이메일or 닉네임 중복체크 -->
+<select id="isDuplicate" parameterType="hashmap" resultType="int">
+	SELECT COUNT(*) FROM user
+	<if test="kind == 'email'"> 
+		WHERE email=#{info}
+	</if> 
+	<if test="kind == 'nickname'"> 
+		WHERE nickname=#{info}
+	</if> 
+</select>
+
+<!-- 2. 단일 회원 정보조회 기능 -->
+<select id="getUserInfo" resultMap="UserMap">
+	SELECT * 
+	FROM user 
+	WHERE email = #{email}
+</select>
+
+<!-- 3. 자동로그인 체크시 쿠키값(세션아이디)와 로그인유지시간을 갱신 -->
+<update id="keepLogin">
+	UPDATE user 
+	SET session_id=#{sessionId},
+	   limit_time=#{limitTime} 
+	WHERE email=#{email}
+</update>
+
+<!-- 4. 자동로그인을 했던 회원이 재방문 시 로컬에 저장된 쿠키값을 통해
+	해당 회원의 정보를 조회하는 SQL
+ -->
+<select id="getUserWithSessionId" resultMap="UserMap">
+	SELECT * FROM user 
+	WHERE session_id = #{sessionId}
+	AND limit_time > NOW()
+</select>
+
+
+
+
+<resultMap id="UserMap" type="com.spring.book.mvcuser.domain.MvcUser">
+	<id property="email" column="email" />
+	<result property="password" column="password" />
+	<result property="nickname" column="nickname"/>
+	<result property="phoneNumber" column="phone_number"/>
+	<result property="bank" column="bank"/>
+	<result property="bankAccount" column="bank_account"/>
+	<result property="auth" column="auth"/>
+	<result property="rate" column="rate"/>
+	<result property="sessionId" column="session_id" />
+	<result property="limitTime" column="limit_time" />
+	<result property="regDate" column="reg_date" />
+	<result property="businessNum" column="business_num"/>
+	<result property="builingAddress" column="building_address" />
+</resultMap>
+
+
+
+
+
+
+
+
+
+
+</mapper>

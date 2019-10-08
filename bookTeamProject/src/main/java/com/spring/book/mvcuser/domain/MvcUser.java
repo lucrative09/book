@@ -28,6 +28,16 @@ public class MvcUser {
 	private Date regDate;
 	private int businessNum;
 	private String buildingAddress;
-	private int userReserveReservePageId;
 
 }
+
+
+
+
+
+
+
+
+
+
+
