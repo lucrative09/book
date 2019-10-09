@@ -68,4 +68,9 @@ public class MvcUserService implements IMvcUserService {
 		return userMapper.getUserWithSessionId(sessionId);
 	}
 
+	@Override
+	public void updateLastLoginTime(String email) {
+		userMapper.updateLastLoginTime(email);
+	}
+	
 }

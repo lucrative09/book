@@ -23,5 +23,7 @@ public interface IMvcUserMapper {
 	//쿠키값으로 회원정보 불러오기 기능
 	MvcUser getUserWithSessionId(String sessionId);
 
+	//최종로그인 시간 갱신
+	void updateLastLoginTime(String email);
 
 }

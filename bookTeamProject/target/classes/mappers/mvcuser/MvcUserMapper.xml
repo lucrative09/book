@@ -47,6 +47,18 @@
 	AND limit_time > NOW()
 </select>
 
+<!-- 5. 최종로그인 시간 처리 -->
+<update id="updateLastLoginTime">
+	UPDATE mvc_user 
+	SET last_login_at = NOW() 
+	WHERE email = #{email}
+</update>
+
+
+<!-- 6. 사업자 검증    /// 사업자 데이터 베이스 필요 -->
+
+
+
 
 
 
