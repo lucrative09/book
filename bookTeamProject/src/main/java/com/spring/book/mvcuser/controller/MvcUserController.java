@@ -153,6 +153,18 @@ public class MvcUserController {
 
 		// 회원 정보 수정 처리
 		
+		
+		
+		
+		
+		
+		//회원 탈퇴 페이지 요청 처리
+		@GetMapping("/delete")
+		public ModelAndView 
+		
+		
+		//회원 탈퇴 요청 처리
+		
 
 
 	

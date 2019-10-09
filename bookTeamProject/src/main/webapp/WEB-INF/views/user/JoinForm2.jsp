@@ -234,7 +234,9 @@ $(function() {
 	const getPhoneNum = RegExp(/^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/);
 	const getBank = RegExp(/^[0-9]+$/);
 	const getBusiness = RegExp(/^[0-9]{3}-[0-9]{2}-[0-9]{5}$/);
-	const getAddress = RegExp(		);
+	const getAddress = RegExp(		); //정규표현식 뭐야 이거
+	
+	
 	
 	//입력값 검증을 마칠 경우 true로 설정 
 	//(chk1 : 이메일검증, chk2 : 비밀번호, chk3: 비번확인란, chk4: 닉네임, chk5: 핸드폰 번호, chk6: 계좌번호, chk7: 사업자검증, chk8 = 주소지 검증 )
