@@ -176,7 +176,7 @@
 							</tr>
 							<tr>
 								<td style="text-align: left">
-									<p><strong>사업지의 도로명 주소을 입력해주세요.</strong>&nbsp;&nbsp;&nbsp;
+									<p><strong>사업지의 주소을 입력해주세요.</strong>&nbsp;&nbsp;&nbsp;
 									<span id="buildingAddressChk"></span></p>
 								</td>							
 							</tr>
@@ -234,10 +234,7 @@ $(function() {
 	const getPhoneNum = RegExp(/^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/);
 	const getBank = RegExp(/^[0-9]+$/);
 	const getBusiness = RegExp(/^[0-9]{3}-[0-9]{2}-[0-9]{5}$/);
-	const getAddress = RegExp(
-		    (([가-힣]+(\d{1,5}|\d{1,5}(,|.)\d{1,5}|)+(읍|면|동|가|리))(^구|)((\d{1,5}(~|-)\d{1,5}|\d{1,5})(가|리|)|))([ ](산(\d{1,5}(~|-)\d{1,5}|\d{1,5}))|)|
-		    (([가-힣]|(\d{1,5}(~|-)\d{1,5})|\d{1,5})+(로|길))
-		);
+	const getAddress = RegExp(		);
 	
 	//입력값 검증을 마칠 경우 true로 설정 
 	//(chk1 : 이메일검증, chk2 : 비밀번호, chk3: 비번확인란, chk4: 닉네임, chk5: 핸드폰 번호, chk6: 계좌번호, chk7: 사업자검증, chk8 = 주소지 검증 )
@@ -395,7 +392,7 @@ $(function() {
 	
 
 	
-	//chk6: 계좌번호
+	//chk6: 계좌번호 -> 계좌 실명인증 api 쓰면 필요없을 듯. 
 	$('#user_phoneNum').on('keyup', function() {
 		
 		if($("#user_phoneNum").val() == ""){
@@ -463,7 +460,7 @@ $(function() {
 	});
 	
 	
-	//chk8: 사업자 주소지 검증
+	//chk8: 사업자 주소지 검증 -> 도로명 주소 api 쓰면 필요없을 듯
 	$('#business_address').on('keyup', function() {
 		if($("#business_address").val() === ""){
 			$('#business_address').css("background-color", "green");
@@ -505,7 +502,7 @@ $(function() {
 	
 	//회원가입 버튼 클릭 이벤트
 	$('#signup-btn').click(function() {
-		if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6 && chk7) {
+		if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6 && chk7 && chk8) {
 			regForm.submit(); //서버로 폼전송
 		} else {
 			alert("입력정보를 다시 확인하세요!");
@@ -514,8 +511,19 @@ $(function() {
 	
 	
 	
+
+	
+	
 });//end JQuery
 
+</script>
+
+
+<script>
+const regResult = "${regResult}";
+if (regResult === "OK") {
+	alert("회원가입이 성공했습니다. 로그인해주세요.");
+}
 </script>
 
 </body>

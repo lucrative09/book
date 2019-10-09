@@ -109,7 +109,7 @@ public class MvcUserController {
 					mv.addObject("loginResult", "pwFail");
 				}			
 			} else {
-				mv.addObject("loginResult", "idFail");
+				mv.addObject("loginResult", "emailFail");
 			}
 			mv.setViewName("user/loginCheck");
 			return mv;
