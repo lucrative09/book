@@ -25,5 +25,8 @@ public interface IMvcUserMapper {
 
 	//최종로그인 시간 갱신
 	void updateLastLoginTime(String email);
+	
+	//회원 탈퇴
+	void withdrawal(String email);
 
 }

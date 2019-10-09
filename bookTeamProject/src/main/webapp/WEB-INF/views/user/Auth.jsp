@@ -12,13 +12,13 @@
 	padding: 20px 0;
 }
 .auth-type .type1 {
-	border-top: 2px solid green;
+	border-top: 2px solid #5fc99b;
 	margin-right: 6%;
 	
 }
 
 .auth-type .type2 {
-	border-top: 2px solid gray;
+	border-top: 2px solid #60aae0;
 	margin-left: 6%;
 	
 }
@@ -30,12 +30,12 @@ dl, dt, dd {
 
 .auth-type .type1 .auth-btn a {
 
-	background-color: green;
+	background-color: #5fc99b;
 
 }
-.auth-type .type .auth-btn a {
+.auth-type .type2 .auth-btn a {
 
-	background-color: gray;
+	background-color: #60aae0;
 	
 }
 
@@ -85,11 +85,6 @@ dl, dt, dd {
 			</dd>	
 		</dl>
 	</div>
-
-
-
-
-
 
 
 </div>

@@ -28,6 +28,8 @@
 
 <!-- 사업자 정보수정 폼 -->
 
+<!-- 사업자는 등록번호도 수정해야하고 -> -->
+
 <c:if test="${loginUser.auth eq 'business'">
 
 

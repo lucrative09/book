@@ -25,6 +25,10 @@ public interface IMvcUserService {
 	//최종로그인 시간 갱신
 	void updateLastLoginTime(String email);
 
+	
+	//회원탈퇴 기능
+	void withdrawal(String email);
+	
 
 	
 }

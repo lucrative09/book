@@ -11,10 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.WebUtils;
 
 import com.spring.book.mvcuser.domain.LoginDTO;
@@ -146,9 +149,7 @@ public class MvcUserController {
 		}
 		
 		
-		//사업자 검증 처리 -> buildingAddress와  businessNum 데이터베이스 속 사업자 확인 
-		//@PostMapping("/#")
-		//public 
+		//사업자 검증 처리 
 		
 
 		// 회원 정보 수정 처리
@@ -159,12 +160,20 @@ public class MvcUserController {
 		
 		
 		//회원 탈퇴 페이지 요청 처리
-		@GetMapping("/delete")
-		public ModelAndView 
+		@GetMapping("/withdrawal")
+		public ModelAndView getWithdrawal() throws Exception {
+			
+			return new ModelAndView("/withdrawalCheck");
+		}
 		
 		
 		//회원 탈퇴 요청 처리
-		
+		@DeleteMapping("/withdrawalCheck")
+		public ModelAndView getClear(HttpSession session, RedirectAttributes rttr) {
+			
+			
+			
+		};
 
 
 	

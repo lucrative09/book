@@ -58,7 +58,7 @@ public class MvcUserService implements IMvcUserService {
 		Map<String, Object> datas = new HashMap<>();
 		datas.put("sessionId", sessionId);
 		datas.put("limitTime", limitTime);
-		datas.put("account", email);
+		datas.put("email", email);
 		
 		userMapper.keepLogin(datas);
 	}
@@ -71,6 +71,12 @@ public class MvcUserService implements IMvcUserService {
 	@Override
 	public void updateLastLoginTime(String email) {
 		userMapper.updateLastLoginTime(email);
+	}
+
+	@Override
+	public void withdrawal(String email) {
+		userMapper.withdrawal(email);
+		
 	}
 	
 }

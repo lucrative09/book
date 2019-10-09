@@ -60,6 +60,14 @@
 
 
 
+<!-- 7. 회원탈퇴 -->
+<delete id="withdrawal">
+	DELETE FROM mvc_user
+	WHERE email = #{email}
+	AND password = #{password}
+</delete>
+
+
 
 
 <resultMap id="UserMap" type="com.spring.book.mvcuser.domain.MvcUser">
