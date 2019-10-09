@@ -28,5 +28,8 @@ public interface IMvcUserMapper {
 	
 	//회원 탈퇴
 	void withdrawal(String email);
+	
+	//회원정보 수정
+	void userInfoMod(MvcUser user);
 
 }

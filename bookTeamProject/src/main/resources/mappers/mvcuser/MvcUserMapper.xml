@@ -68,6 +68,17 @@
 </delete>
 
 
+<!-- 8.회원 정보 수정 -->
+
+<update id="userInfoMod">
+
+	UPDATE mvc_user
+	SET password= fn_encrypt(#{password}), nickname=#{nickname}, phone_number = #{phoneNumber}, 
+				bank=#{bank}, bank_account = #{bankAccount}, business_num =#{businessNum}, building_address=#{buildingAddress}
+	WHERE email = #{email}
+
+</update>
+
 
 
 <resultMap id="UserMap" type="com.spring.book.mvcuser.domain.MvcUser">

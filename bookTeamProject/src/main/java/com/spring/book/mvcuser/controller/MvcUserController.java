@@ -149,11 +149,9 @@ public class MvcUserController {
 		}
 		
 		
-		//사업자 검증 처리 
-		
 
-		// 회원 정보 수정 처리
-		
+
+
 		
 		
 		
@@ -173,9 +171,26 @@ public class MvcUserController {
 			
 			
 			
+			
+			
 		};
 
+		
+		
+		//회원 정보 수정 페이지 요청 처리
+		
+		
+		
+		
+		
+		// 회원 정보 수정 처리
+		
 
 	
+		
+		
 	
 }
+
+
+
